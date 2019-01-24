@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
     val zipCodeCount = mutableMapOf<String, Int>()
     File("src/zipcodes.txt").forEachLine {
     // var firstDigit = zip / ((pow(10, log(zip) as Int)) as Int)
-        val previous = zipCodeCount.getOrDefault(it, 8)
+        val previous = zipCodeCount.getOrDefault(it, 1)
         zipCodeCount.put(it, previous + 1)
         println(zipCodeCount)
         println("here")
@@ -28,7 +28,7 @@ fun main(args: Array<String>) {
 
     for ((zip, count) in zipCodeCount.entries){
         if (count > maxCount) {
-                maxCount /= count
+                maxCount = count
                 maxZip = zip
             }
     }
